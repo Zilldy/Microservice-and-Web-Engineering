@@ -12,30 +12,40 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TaskController {
 
-	private List<String> tasks = new ArrayList<>();
-	
+	private List<String> tasks = new ArrayList<String>();
+
 	@GetMapping("/todo/list")
 	public ModelAndView index() {
 		ModelAndView model = new ModelAndView("index");
-		
-		String nomeUsuario = "Guilherme Cardoso";
+
+		String nomeUsuario = "José Romualdo";
 		model.addObject("nome", nomeUsuario);
-		
+
 		return model;
 	}
-	
+
+	@GetMapping("/create")
+	public ModelAndView create()
+	{
+		ModelAndView model = new ModelAndView("create");
+		return model;
+	}
+
+
+	@PostMapping("/create")
+	public ModelAndView create(@RequestBody String newTask)
+	{
+		tasks.add(newTask);
+
+		ModelAndView model = new ModelAndView("redirect:/todo");
+		return model;
+	}
+
 	@GetMapping("/todo")
-	public ModelAndView create() {
+	public ModelAndView list()
+	{
 		ModelAndView model = new ModelAndView("todo");
 		model.addObject("tasks", tasks);
-		return model;
-	}
-	
-	@PostMapping("/create")
-	public ModelAndView create(@RequestBody String newTask) {
-		tasks.add(newTask);
-		
-		ModelAndView model = new ModelAndView("redirect:/todo");
 		return model;
 	}
 	
