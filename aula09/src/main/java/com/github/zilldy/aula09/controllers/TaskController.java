@@ -18,7 +18,7 @@ public class TaskController {
 	public ModelAndView index() {
 		ModelAndView model = new ModelAndView("index");
 
-		String nomeUsuario = "José Romualdo";
+		String nomeUsuario = "Guilherme Cardoso";
 		model.addObject("nome", nomeUsuario);
 
 		return model;
