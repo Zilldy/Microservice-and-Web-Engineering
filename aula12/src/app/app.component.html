@@ -1,5 +1,5 @@
 <article>
-  <h2>Botão Binding</h2>
+  <!-- <h2>Botão Binding</h2>
   <button [disabled]="desabilitado">Clique Aqui!</button>
   <h2>Property Binding</h2>
   <img [src]="imageUrl">
@@ -13,14 +13,14 @@
       <option value="alert-danger">Erro</option>
     </optgroup>
   </select>
-  <br>
+  <br> -->
   <!-- Interpolação -->
-  <div class="alert {{ classe.value }}" role="alert">
+  <!-- <div class="alert {{ classe.value }}" role="alert">
     Texto colorido conforme o valor do combobox
-  </div>
+  </div> -->
 
   <!-- Property -->
-  <div class="alert" [class.alert-success]="classe.value == 'alert-success'" role="alert">
+  <!-- <div class="alert" [class.alert-success]="classe.value == 'alert-success'" role="alert">
       A simple success alert—check it out!
   </div>
   <div class="alert" [class.alert-info]="classe.value == 'alert-info'" role="alert">
@@ -31,10 +31,30 @@
   </div>
   <div class="alert" [class.alert-danger]="classe.value == 'alert-danger'" role="alert">
       A simple danger alert—check it out!
-  </div>
+  </div> -->
 
   <!-- Property com ternário -->
-  <div class="alert alert-danger" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'" role="alert">
+  <!-- <div class="alert alert-danger" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'" role="alert">
       Esse texto somente aparece em caso de erro.
-  </div>
+  </div> -->
+
+  <h3>Event Binding</h3>
+      <div>
+          <button class="btn btn-primary" (click)="botaoClicado()">Me clique!</button>
+          <br><br>
+          <input type="text"
+                 (keyup)="onKeyUp($event)"
+                 (keyup.enter)="salvarValor(campoInput.value)"
+                 (blur)="salvarValor(campoInput.value)"
+                 [disabled]="desabilitado"
+                 #campoInput>
+          <p>Valor atual: {{ valorAtual }}</p>
+          <p>Valor salvo: {{ valorSalvo }}</p>
+          <br><br>
+          <span (mouseover)="onMouseOverOut()"
+                (mouseout)="onMouseOverOut()"
+                [class.highlight]="isMouseOver">
+              Passe o mouse sobre mim 😊
+          </span>
+      </div>
 </article>
