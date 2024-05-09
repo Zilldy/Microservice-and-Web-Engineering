@@ -9,8 +9,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'aula12';
+  title = 'Aula12 - Guilherme Cardoso';
 
   desabilitado: boolean = true;
-  imageUrl: String = "https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY";
+  imageUrl: String = "https://picsum.photos/id/500/150/150";
 }

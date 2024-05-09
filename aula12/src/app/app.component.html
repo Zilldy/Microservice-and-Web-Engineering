@@ -3,4 +3,38 @@
   <button [disabled]="desabilitado">Clique Aqui!</button>
   <h2>Property Binding</h2>
   <img [src]="imageUrl">
+  <h2>Class e Style Binding</h2>
+  <p>Selecione uma classe</p>
+  <select #classe (change)="0">
+    <optgroup label="Alertas">
+      <option value="alert-success">Sucesso</option>
+      <option value="alert-info">Info</option>
+      <option value="alert-warning">Alerta</option>
+      <option value="alert-danger">Erro</option>
+    </optgroup>
+  </select>
+  <br>
+  <!-- Interpolação -->
+  <div class="alert {{ classe.value }}" role="alert">
+    Texto colorido conforme o valor do combobox
+  </div>
+
+  <!-- Property -->
+  <div class="alert" [class.alert-success]="classe.value == 'alert-success'" role="alert">
+      A simple success alert—check it out!
+  </div>
+  <div class="alert" [class.alert-info]="classe.value == 'alert-info'" role="alert">
+      A simple info alert—check it out!
+  </div>
+  <div class="alert" [class.alert-warning]="classe.value == 'alert-warning'" role="alert">
+      A simple warning alert—check it out!
+  </div>
+  <div class="alert" [class.alert-danger]="classe.value == 'alert-danger'" role="alert">
+      A simple danger alert—check it out!
+  </div>
+
+  <!-- Property com ternário -->
+  <div class="alert alert-danger" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'" role="alert">
+      Esse texto somente aparece em caso de erro.
+  </div>
 </article>
